@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        :root {
+            --bg-start: #0f3550;
+            --bg-end: #1d6c86;
+            --card-bg: #f7fbfd;
+            --text-main: #113247;
+            --text-soft: #4f6d7d;
+            --accent: #ff7a3d;
+            --accent-hover: #e9652b;
+            --border-soft: #c9e4ef;
+            --item-bg: #eaf6fb;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,8 +28,9 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #161E54, #2a3570);
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
             padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
@@ -32,16 +45,24 @@
 
         h1 {
             text-align: center;
-            color: #BBE0EF;
+            color: #e8f7ff;
             margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .card {
-            background: #fff;
+            background: var(--card-bg);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 20px;
             width: 100%;
+            color: var(--text-main);
+            box-shadow: 0 10px 24px rgba(7, 39, 56, 0.15);
+        }
+
+        h3 {
+            color: var(--text-main);
+            margin-bottom: 10px;
         }
 
         .input-group {
@@ -53,25 +74,41 @@
             flex: 1;
             padding: 10px;
             border-radius: 6px;
-            border: 2px solid #BBE0EF;
+            border: 2px solid var(--border-soft);
+            outline: none;
+            color: var(--text-main);
+            background: #fff;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 122, 61, 0.2);
         }
 
         button {
             padding: 10px 20px;
-            background: #F16D34;
+            background: var(--accent);
             color: #fff;
             border: none;
             border-radius: 6px;
             cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
         }
 
         .weather-item {
             display: flex;
             justify-content: space-between;
             padding: 8px;
-            border-left: 4px solid #F16D34;
+            border-left: 4px solid var(--accent);
             margin-bottom: 6px;
-            background: #f9f9f9;
+            background: var(--item-bg);
+            color: var(--text-main);
+            border-radius: 6px;
         }
 
         .console {
@@ -103,6 +140,11 @@
             margin: 5px;
             padding: 6px 14px;
             border-radius: 20px;
+            background: #2a8eac;
+        }
+
+        .history button:hover {
+            background: #237a94;
         }
 
         @media (max-width:700px) {
